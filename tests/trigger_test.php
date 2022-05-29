@@ -24,7 +24,8 @@
  *             based on code 2020 by Tobias Reischmann WWU
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace tool_lifecycle\trigger;
+
+namespace lifecycletrigger_customfieldsemester;
 
 use DateTime;
 use tool_lifecycle\local\entity\trigger_subplugin;
@@ -51,7 +52,7 @@ define('TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_WINTERTERMSTART', 10);
  *             based on code 2020 by Tobias Reischmann WWU
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class tool_lifecycle_trigger_customfieldsemester_testcase extends \advanced_testcase {
+class trigger_test extends \advanced_testcase {
 
     /** @var $triggerinstance trigger_subplugin Instance of the trigger. */
     private $triggerinstance;
