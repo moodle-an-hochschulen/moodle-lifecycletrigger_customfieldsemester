@@ -4,7 +4,7 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
-### Unreleased
+### v3.9-r2
 
 * 2022-05-29 - Make Codechecker happy
 * 2022-05-29 - Update Github actions to latest recommendation and to cover Moodle 3.9, 3.10 and 3.11
