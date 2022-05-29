@@ -9,7 +9,7 @@ Moodle trigger subplugin for the Moodle admin tool "Course Life Cycle" which tri
 Requirements
 ------------
 
-This plugin requires Moodle 3.10+
+This plugin requires Moodle 3.9+
 
 Additionally, this plugin requires the Moodle plugin tool_lifecycle which is published on https://github.com/learnweb/moodle-tool_lifecycle.
 Furthermore, it requires the Moodle plugin customfield_semester which is published on https://github.com/learnweb/moodle-customfield_semester.
