@@ -95,6 +95,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if term-independent courses are not triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_termindependent_course() {
         // Create a course with a customfield semester value set to the term-independent value.
@@ -119,6 +123,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if courses of the current term are not triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_current_course() {
         // Create a course with a customfield semester value of the current term.
@@ -144,6 +152,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if courses of the next term are not triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_new_course() {
         // Create a course with a customfield semester value of the next term.
@@ -169,6 +181,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if courses of the last term are not triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_old_course() {
         // Create a course with a customfield semester value of the last term.
@@ -194,6 +210,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if courses of the term before the last term are triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_outdated_course() {
         // Create a course with a customfield semester value of the term before the last term.
@@ -219,6 +239,10 @@ class trigger_test extends \advanced_testcase {
 
     /**
      * Tests if courses two terms before the last term are triggered by this plugin.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_reallyoutdated_course() {
         // Create a course with a customfield semester value two terms before the last term.
@@ -246,6 +270,10 @@ class trigger_test extends \advanced_testcase {
      * Tests if courses, which have a customfield semester in the future, are not triggered by this plugin.
      * In addition, a second custom course field, which has a value that could trigger the course, is added to the course
      * but must be ignored by the trigger.
+     *
+     * This test does not test a particular class or function.
+     * Thus, we set coversNothing.
+     * @coversNothing
      */
     public function test_young_course_with_second_customcourse_field() {
         // Add an additional custom course field of type semester.
