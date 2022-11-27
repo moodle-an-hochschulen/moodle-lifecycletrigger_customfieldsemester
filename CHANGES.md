@@ -4,6 +4,10 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
+### Unreleased
+
+* 2022-11-27 - Updated Moodle Plugin CI to cover only 3.9 for now
+
 ### v3.9-r2
 
 * 2022-05-29 - Make Codechecker happy
