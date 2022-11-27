@@ -4,6 +4,10 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
+### Unreleased
+
+* 2022-11-27 - Prepare compatibility for Moodle 3.11.
+
 ### v3.10-r1
 
 * 2022-11-27 - Prepare compatibility for Moodle 3.10.
