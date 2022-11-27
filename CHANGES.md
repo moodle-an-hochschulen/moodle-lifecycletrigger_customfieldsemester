@@ -6,6 +6,7 @@ Changes
 
 ### Unreleased
 
+* 2022-11-27 - Add UPGRADE.md
 * 2022-11-27 - Add phpunit.xml to the codebase and @coversNothing tags to the PHPUnit tests.
 * 2022-11-27 - Update descriptions, maintainers and copyrights in README.md
 * 2022-11-27 - Updated Moodle Plugin CI to cover only 3.9 for now
