@@ -4,7 +4,7 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
-### Unreleased
+### v3.9-r3
 
 * 2022-11-27 - Add UPGRADE.md
 * 2022-11-27 - Add phpunit.xml to the codebase and @coversNothing tags to the PHPUnit tests.
