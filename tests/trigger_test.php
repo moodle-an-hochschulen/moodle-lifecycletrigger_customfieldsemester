@@ -84,8 +84,8 @@ class trigger_test extends \advanced_testcase {
         // Create a new custom field of type semester.
         // The submitted configdata is the standard configuration of the custom field and not relevant for this test.
         $customfield = ['shortname' => 'lectureterm', 'name' => 'Lecture term', 'type' => 'semester',
-                'configdata' => array('showmonthsintofuture' => 6, 'defaultmonthsintofuture' => 3, 'beginofsemesters' => 2007),
-                'categoryid' => $this->fieldcategory->get('id')];
+                'configdata' => ['showmonthsintofuture' => 6, 'defaultmonthsintofuture' => 3, 'beginofsemesters' => 2007],
+                'categoryid' => $this->fieldcategory->get('id'), ];
         self::getDataGenerator()->create_custom_field($customfield);
 
         // Create the workflow including the trigger.
@@ -278,7 +278,7 @@ class trigger_test extends \advanced_testcase {
     public function test_young_course_with_second_customcourse_field() {
         // Add an additional custom course field of type semester.
         $customfield = ['shortname' => 'lectureterm2', 'name' => 'Lecture term 2', 'type' => 'semester',
-                'categoryid' => $this->fieldcategory->get('id')];
+                'categoryid' => $this->fieldcategory->get('id'), ];
         self::getDataGenerator()->create_custom_field($customfield);
 
         // Create a course with a (significant) customfield semester value in the future and

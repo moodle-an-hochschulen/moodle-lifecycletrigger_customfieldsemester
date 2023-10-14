@@ -80,9 +80,9 @@ class customfieldsemester extends base_automatic {
         $delay = settings_manager::get_settings($triggerid, settings_type::TRIGGER)['delay'];
 
         // If the configured custom field does not exist, throw an exception.
-        if (!($field = $DB->get_record('customfield_field', array('shortname' => $customfield, 'type' => 'semester')))) {
+        if (!($field = $DB->get_record('customfield_field', ['shortname' => $customfield, 'type' => 'semester']))) {
             throw new \moodle_exception('error_missingfield', 'lifecycletrigger_customfieldsemester', '',
-                    array('missingfield' => $customfield));
+                    ['missingfield' => $customfield]);
         }
 
         // Get all existing term values.
@@ -90,7 +90,7 @@ class customfieldsemester extends base_automatic {
                          FROM {customfield_data}
                          WHERE fieldid = :fieldid AND intvalue != 1
                          ORDER BY intvalue DESC';
-        $fielddataparams = array('fieldid' => $field->id);
+        $fielddataparams = ['fieldid' => $field->id];
         $fielddata = $DB->get_records_sql($fielddatasql, $fielddataparams);
 
         // Initialize the oldest term which should be left untriggered in this run.
@@ -163,12 +163,12 @@ class customfieldsemester extends base_automatic {
                           WHERE fdata.fieldid = :customfieldid AND fdata.intvalue < :oldesttermtoleaveuntriggered
                               AND fdata.intvalue != 1
                       )';
-        $params = array(
+        $params = [
             'oldesttermtoleaveuntriggered' => $oldesttermtoleaveuntriggered,
             'customfieldid' => $field->id,
-        );
+        ];
 
-        return array($where, $params);
+        return [$where, $params];
     }
 
     /**
@@ -184,13 +184,13 @@ class customfieldsemester extends base_automatic {
      * @return instance_setting[] containing settings keys and PARAM_TYPES
      */
     public function instance_settings() {
-        return array(
+        return [
             // Instance setting for the 'Customfield' field.
             new instance_setting('customfield', PARAM_TEXT),
 
             // Instance setting for the 'Delay' field.
             new instance_setting('delay', PARAM_INT),
-        );
+        ];
     }
 
     /**
@@ -202,10 +202,10 @@ class customfieldsemester extends base_automatic {
         global $DB;
 
         // Add the 'Customfield' field.
-        $customfields = $DB->get_records('customfield_field', array('type' => 'semester'));
+        $customfields = $DB->get_records('customfield_field', ['type' => 'semester']);
         // If we have found at least one field.
         if ($customfields) {
-            $customfieldchoices = array();
+            $customfieldchoices = [];
             foreach ($customfields as $field) {
                 $customfieldchoices[$field->shortname] = $field->name;
             }
