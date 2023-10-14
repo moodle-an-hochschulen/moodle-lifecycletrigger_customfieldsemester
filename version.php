@@ -31,5 +31,5 @@ $plugin->release = 'v4.1-r1';
 $plugin->requires = 2022112800;
 $plugin->supported = [401, 401];
 $plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = array('tool_lifecycle' => 2022033100,
-        'customfield_semester' => 2020041304);
+$plugin->dependencies = ['tool_lifecycle' => 2022033100,
+        'customfield_semester' => 2020041304, ];
