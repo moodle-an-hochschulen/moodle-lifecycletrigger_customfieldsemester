@@ -62,6 +62,18 @@ The trigger will take the term of a course, get the start month of the term, add
 Courses which have the 'term-independent' value in the custom course field will never be triggered.
 
 
+Capabilities
+------------
+
+This plugin does not add any additional capabilities.
+
+
+Scheduled Tasks
+---------------
+
+This plugin does not add any additional scheduled tasks.
+
+
 Theme support
 -------------
 
