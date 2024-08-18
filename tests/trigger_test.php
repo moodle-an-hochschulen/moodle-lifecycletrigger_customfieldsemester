@@ -52,7 +52,7 @@ define('TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_WINTERTERMSTART', 10);
  *             based on code 2020 by Tobias Reischmann WWU
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class trigger_test extends \advanced_testcase {
+final class trigger_test extends \advanced_testcase {
 
     /** @var $triggerinstance trigger_subplugin Instance of the trigger. */
     private $triggerinstance;
@@ -66,7 +66,7 @@ class trigger_test extends \advanced_testcase {
     /**
      * Initial set up.
      */
-    public function setUp() : void {
+    public function setUp(): void {
         // Standard setup.
         $this->resetAfterTest(true);
         $this->setAdminUser();
@@ -100,7 +100,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_termindependent_course() {
+    public function test_termindependent_course(): void {
         // Create a course with a customfield semester value set to the term-independent value.
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => 1];
         $course = $this->getDataGenerator()->create_course(['customfields' => [$customfieldvalue]]);
@@ -128,7 +128,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_current_course() {
+    public function test_current_course(): void {
         // Create a course with a customfield semester value of the current term.
         $semesterid = data_controller::get_semester_for_datetime(new DateTime('now'));
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => $semesterid];
@@ -157,7 +157,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_new_course() {
+    public function test_new_course(): void {
         // Create a course with a customfield semester value of the next term.
         $semesterid = data_controller::get_semester_for_datetime(new DateTime('+6 months'));
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => $semesterid];
@@ -186,7 +186,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_old_course() {
+    public function test_old_course(): void {
         // Create a course with a customfield semester value of the last term.
         $semesterid = data_controller::get_semester_for_datetime(new DateTime('-6 months'));
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => $semesterid];
@@ -215,7 +215,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_outdated_course() {
+    public function test_outdated_course(): void {
         // Create a course with a customfield semester value of the term before the last term.
         $semesterid = data_controller::get_semester_for_datetime(new DateTime('-12 months'));
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => $semesterid];
@@ -244,7 +244,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_reallyoutdated_course() {
+    public function test_reallyoutdated_course(): void {
         // Create a course with a customfield semester value two terms before the last term.
         $semesterid = data_controller::get_semester_for_datetime(new DateTime('-18 months'));
         $customfieldvalue = ['shortname' => 'lectureterm', 'value' => $semesterid];
@@ -275,7 +275,7 @@ class trigger_test extends \advanced_testcase {
      * Thus, we set coversNothing.
      * @coversNothing
      */
-    public function test_young_course_with_second_customcourse_field() {
+    public function test_young_course_with_second_customcourse_field(): void {
         // Add an additional custom course field of type semester.
         $customfield = ['shortname' => 'lectureterm2', 'name' => 'Lecture term 2', 'type' => 'semester',
                 'categoryid' => $this->fieldcategory->get('id'), ];
