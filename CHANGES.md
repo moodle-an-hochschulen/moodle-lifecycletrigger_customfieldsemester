@@ -4,7 +4,7 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
-### Unreleased
+### v4.3-r2
 
 * 2024-08-11 - Add section for scheduled tasks and capabilities to README
 * 2024-08-11 - Updated Moodle Plugin CI to latest upstream recommendations
