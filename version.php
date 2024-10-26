@@ -28,8 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'lifecycletrigger_customfieldsemester';
 $plugin->version = 2024060101;
 $plugin->release = 'v4.4-r2';
-$plugin->requires = 2024042200;
-$plugin->supported = [404, 404];
+$plugin->requires = 2024100700;
+$plugin->supported = [405, 405];
 $plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = ['tool_lifecycle' => 2023050200,
+$plugin->dependencies = ['tool_lifecycle' => 2024042300,
         'customfield_semester' => 2020041304, ];
