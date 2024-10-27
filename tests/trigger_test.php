@@ -91,6 +91,9 @@ final class trigger_test extends \advanced_testcase {
         // Create the workflow including the trigger.
         $this->triggerinstance = \tool_lifecycle_trigger_customfieldsemester_generator::create_trigger_with_workflow(
             $customfield['shortname'], TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_DELAY);
+
+        // Call parent setup.
+        parent::setUp();
     }
 
     /**
