@@ -4,7 +4,7 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
-### Unreleased
+### v4.1-r4
 
 * 2024-10-27 - Tests: Call parent setup() function when instantiating PHPUnit tests.
 
