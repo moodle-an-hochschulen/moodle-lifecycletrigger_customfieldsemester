@@ -215,7 +215,7 @@ class customfieldsemester extends base_automatic {
 
             // Otherwise.
         } else {
-            $managefieldsurl = new \moodle_url('/course/customfield.php');
+            $managefieldsurl = new \core\url('/course/customfield.php');
             $mform->addElement('static', 'customfield', get_string('setting_customfield', 'lifecycletrigger_customfieldsemester'),
                     get_string('setting_customfield_nofield', 'lifecycletrigger_customfieldsemester', $managefieldsurl->out()));
         }
