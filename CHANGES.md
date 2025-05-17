@@ -4,6 +4,10 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
+### Unreleased
+
+* 2025-04-14 - Add plugin description string to be used by tool_lifecycle's subplugin API.
+
 ### v4.4-r2
 
 * 2024-10-27 - Tests: Call parent setup() function when instantiating PHPUnit tests.
