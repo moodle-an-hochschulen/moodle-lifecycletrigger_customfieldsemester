@@ -1,7 +1,7 @@
 moodle-lifecycletrigger_customfieldsemester
 ===========================================
 
-[![Moodle Plugin CI](https://github.com/moodle-an-hochschulen/moodle-lifecycletrigger_customfieldsemester/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=main)](https://github.com/moodle-an-hochschulen/moodle-lifecycletrigger_customfieldsemester/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amain)
+[![Moodle Plugin CI](https://github.com/moodle-an-hochschulen/moodle-lifecycletrigger_customfieldsemester/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=MOODLE_500_STABLE)](https://github.com/moodle-an-hochschulen/moodle-lifecycletrigger_customfieldsemester/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3AMOODLE_500_STABLE)
 
 Moodle trigger subplugin for the Moodle admin tool "Course Life Cycle" which triggers based on values of a custom course field of type "semester".
 
