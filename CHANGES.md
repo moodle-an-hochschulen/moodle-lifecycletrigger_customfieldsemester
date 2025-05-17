@@ -4,7 +4,7 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
-### Unreleased
+### v4.3-r4
 
 * 2025-04-14 - Add plugin description string to be used by tool_lifecycle's subplugin API.
 
