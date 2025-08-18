@@ -26,6 +26,7 @@
 
 namespace tool_lifecycle\trigger;
 
+use core_customfield\api;
 use core_customfield\data_controller;
 use core_customfield\field_controller;
 use tool_lifecycle\local\manager\settings_manager;
@@ -283,4 +284,38 @@ class customfieldsemester extends base_automatic {
             }
         }
     }
+
+    /**
+     * Ensure the validity of settings upon backup restoration.
+     * @param array $settings
+     * @return array List of errors. If empty, the given settings are valid.
+     * @throws \coding_exception
+     */
+    public function ensure_validity(array $settings): array {
+        global $DB;
+
+        $errors = [];
+        foreach ($settings as $key => $value) {
+            if ($key == 'customfield') {
+                // If the configured custom field does not exist, add an error message.
+                if (!$DB->get_record('customfield_field', ['shortname' => $value, 'type' => 'semester'])) {
+                    $errors[] = get_string('error_missingfield', 'lifecycletrigger_customfieldsemester',
+                        ['missingfield' => $value]);
+                }
+            }
+        }
+        $missingcustomfieldtype = true;
+        $fieldtypes = api::get_available_field_types();
+        foreach ($fieldtypes as $fieldtype) {
+            if ($fieldtype == 'Semester field') {
+                $missingcustomfieldtype = false;
+                break;
+            }
+        }
+        if ($missingcustomfieldtype) {
+            $errors[] = get_string('error_missingfieldtype', 'lifecycletrigger_customfieldsemester');
+        }
+        return $errors;
+    }
+
 }
