@@ -53,7 +53,6 @@ define('TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_WINTERTERMSTART', 10);
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class trigger_test extends \advanced_testcase {
-
     /** @var $triggerinstance trigger_subplugin Instance of the trigger. */
     private $triggerinstance;
 
@@ -90,7 +89,9 @@ final class trigger_test extends \advanced_testcase {
 
         // Create the workflow including the trigger.
         $this->triggerinstance = \tool_lifecycle_trigger_customfieldsemester_generator::create_trigger_with_workflow(
-            $customfield['shortname'], TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_DELAY);
+            $customfield['shortname'],
+            TEST_LIFECYCLETRIGGER_CUSTOMFIELDSEMESTER_DELAY
+        );
 
         // Call parent setup.
         parent::setUp();

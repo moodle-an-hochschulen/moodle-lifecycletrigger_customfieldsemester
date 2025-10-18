@@ -50,7 +50,6 @@ require_once(__DIR__ . '/../../lib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class customfieldsemester extends base_automatic {
-
     /**
      * Checks the course and returns a response, which tells if the course should be further processed.
      * @param object $course Course to be processed.
@@ -81,8 +80,12 @@ class customfieldsemester extends base_automatic {
 
         // If the configured custom field does not exist, throw an exception.
         if (!($field = $DB->get_record('customfield_field', ['shortname' => $customfield, 'type' => 'semester']))) {
-            throw new \moodle_exception('error_missingfield', 'lifecycletrigger_customfieldsemester', '',
-                    ['missingfield' => $customfield]);
+            throw new \moodle_exception(
+                'error_missingfield',
+                'lifecycletrigger_customfieldsemester',
+                '',
+                ['missingfield' => $customfield]
+            );
         }
 
         // Get all existing term values.
@@ -102,7 +105,8 @@ class customfieldsemester extends base_automatic {
 
         // Get the general start months of the terms.
         $summertermstartmonth = $datacontroller->get_summerterm_startmonth();
-        $wintertermstartmonth = $datacontroller->get_winterterm_startmonth();;
+        $wintertermstartmonth = $datacontroller->get_winterterm_startmonth();
+        ;
 
         // Iterate over the existing term values.
         foreach ($fielddata as $f) {
@@ -125,16 +129,15 @@ class customfieldsemester extends base_automatic {
                 $termstartmonth = sprintf('%02d', $summertermstartmonth);
             } else {
                 $termstartmonth = sprintf('%02d', $wintertermstartmonth);
-
             }
 
             // Calculate this term's term start day.
             // We use the 'Eight digit year, month and day' format which the DateTime parser understands
             // (See https://www.php.net/manual/en/datetime.formats.date.php).
-            $termstartday = new DateTime($fyear.$termstartmonth.'01', core_date::get_server_timezone_object());
+            $termstartday = new DateTime($fyear . $termstartmonth . '01', core_date::get_server_timezone_object());
 
             // Add the configured amount of delay months.
-            $termstartday->add(new DateInterval('P'.$delay.'M'));
+            $termstartday->add(new DateInterval('P' . $delay . 'M'));
 
             // Get the current time stamp to be used for comparison.
             $now = new DateTime('now', core_date::get_server_timezone_object());
@@ -159,7 +162,7 @@ class customfieldsemester extends base_automatic {
                           SELECT ctx.instanceid
                           FROM {context} ctx
                           JOIN {customfield_data} fdata
-                              ON fdata.contextid = ctx.id AND ctx.contextlevel = '.CONTEXT_COURSE.'
+                              ON fdata.contextid = ctx.id AND ctx.contextlevel = ' . CONTEXT_COURSE . '
                           WHERE fdata.fieldid = :customfieldid AND fdata.intvalue < :oldesttermtoleaveuntriggered
                               AND fdata.intvalue != 1
                       )';
@@ -209,22 +212,34 @@ class customfieldsemester extends base_automatic {
             foreach ($customfields as $field) {
                 $customfieldchoices[$field->shortname] = $field->name;
             }
-            $mform->addElement('select', 'customfield', get_string('setting_customfield', 'lifecycletrigger_customfieldsemester'),
-                    $customfieldchoices);
+            $mform->addElement(
+                'select',
+                'customfield',
+                get_string('setting_customfield', 'lifecycletrigger_customfieldsemester'),
+                $customfieldchoices
+            );
             $mform->addHelpButton('customfield', 'setting_customfield', 'lifecycletrigger_customfieldsemester');
 
             // Otherwise.
         } else {
             $managefieldsurl = new \core\url('/course/customfield.php');
-            $mform->addElement('static', 'customfield', get_string('setting_customfield', 'lifecycletrigger_customfieldsemester'),
-                    get_string('setting_customfield_nofield', 'lifecycletrigger_customfieldsemester', $managefieldsurl->out()));
+            $mform->addElement(
+                'static',
+                'customfield',
+                get_string('setting_customfield', 'lifecycletrigger_customfieldsemester'),
+                get_string('setting_customfield_nofield', 'lifecycletrigger_customfieldsemester', $managefieldsurl->out())
+            );
         }
 
         // Add the 'Delay' field.
         $mform->addElement('text', 'delay', get_string('setting_delay', 'lifecycletrigger_customfieldsemester'));
         $mform->addHelpButton('delay', 'setting_delay', 'lifecycletrigger_customfieldsemester');
-        $mform->addRule('delay', get_string('error_delaypositive', 'lifecycletrigger_customfieldsemester'),
-                'regex', '#^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$#');
+        $mform->addRule(
+            'delay',
+            get_string('error_delaypositive', 'lifecycletrigger_customfieldsemester'),
+            'regex',
+            '#^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$#'
+        );
         $mform->setType('delay', PARAM_INT);
     }
 
