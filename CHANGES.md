@@ -4,6 +4,10 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
+### Unreleased
+
+* 2025-10-15 - Tests: Switch Github actions workflows to reusable workflows by Moodle an Hochschulen e.V.
+
 ### v4.5-r2
 
 * 2025-04-14 - Add plugin description string to be used by tool_lifecycle's subplugin API.
