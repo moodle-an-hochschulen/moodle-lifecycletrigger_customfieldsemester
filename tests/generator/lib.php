@@ -43,7 +43,6 @@ use tool_lifecycle\settings_type;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_lifecycle_trigger_customfieldsemester_generator extends testing_module_generator {
-
     /**
      * Creates a trigger customfieldsemester for an artificial workflow without steps.
      *
