@@ -9,7 +9,7 @@ Moodle trigger subplugin for the Moodle admin tool "Course Life Cycle" which tri
 Requirements
 ------------
 
-This plugin requires Moodle 5.0+
+This plugin requires Moodle 5.1+
 
 Additionally, this plugin requires two other third party plugins:
 
