@@ -299,15 +299,18 @@ class customfieldsemester extends base_automatic {
             if ($key == 'customfield') {
                 // If the configured custom field does not exist, add an error message.
                 if (!$DB->get_record('customfield_field', ['shortname' => $value, 'type' => 'semester'])) {
-                    $errors[] = get_string('error_missingfield', 'lifecycletrigger_customfieldsemester',
-                        ['missingfield' => $value]);
+                    $errors[] = get_string(
+                        'error_missingfield',
+                        'lifecycletrigger_customfieldsemester',
+                        ['missingfield' => $value]
+                    );
                 }
             }
         }
         $missingcustomfieldtype = true;
         $fieldtypes = api::get_available_field_types();
-        foreach ($fieldtypes as $fieldtype) {
-            if ($fieldtype == 'Semester field') {
+        foreach ($fieldtypes as $fieldtype => $unused) {
+            if ($fieldtype == 'semester') {
                 $missingcustomfieldtype = false;
                 break;
             }
@@ -317,5 +320,4 @@ class customfieldsemester extends base_automatic {
         }
         return $errors;
     }
-
 }

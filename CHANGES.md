@@ -4,6 +4,10 @@ moodle-lifecycletrigger_customfieldsemester
 Changes
 -------
 
+### Unreleased
+
+* 2025-10-31 - Improvement: Verify that the semester customfield exists when restoring a workflow with this trigger, credits to bluetom.
+
 ### v4.5-r3
 
 * 2025-10-15 - Make codechecker happy again
